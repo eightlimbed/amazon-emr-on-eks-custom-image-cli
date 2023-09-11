@@ -191,6 +191,27 @@ EmrReleases:
     EnvironmentVariable:
     - java_home
     - spark_home
+    - livy_home
+    FileStructure:
+    - hadoop-jars
+    - hadoop-jars-6
+    - hadoop-files
+    - hadoop-files-6
+    - spark-jars-6-6
+    - hadoop-jars-6-6
+    - hadoop-files-6-6
+    ImageType: spark
+    ManifestConfig: !ManifestConfig
+      Entrypoint: /usr/bin/entrypoint.sh
+      User: hadoop:hadoop
+      WorkingDir: /home/hadoop
+  ReleaseName: emr-6.10.0
+- !EmrRelease
+  Images:
+  - !ImageDetail
+    EnvironmentVariable:
+    - java_home
+    - spark_home
     FileStructure:
     - spark-jars
     - spark-jars-5-34
